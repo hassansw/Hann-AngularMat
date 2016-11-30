@@ -1,0 +1,65 @@
+<!--ACM WEBSITE by HASSANSW-->
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Angular Material style sheet -->
+        <link rel="stylesheet" href="css/angular-material.min.css">
+        <link rel="stylesheet" href="assets/app.css">
+
+    </head>
+    <body ng-app="App" layout="column" ng-controller="UserController as vm">
+
+      <!-- Main Content Starts Here -->
+      <md-toolbar>
+        <md-button class="menu">
+          <md-icon md-svg-src="assets/svg/menu.svg"></md-icon>
+        </md-button>
+        <h1>Angular Toolbar</h1>
+      </md-toolbar>
+
+      <div layout="row" flex>
+        <md-sidenav class="md-whiteframe-z2" layout="column" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+          <md-list>
+
+            <md-list-item ng-repeat="item in vm.user">
+              <md-button ng-click="vm.selecUser(item)">
+                <md-icon class="avatar" md-svg-src="{{item.avatar}}"></md-icon>
+                {{item.name}}
+              </md-button>
+            </md-list-item>
+
+          </md-list>
+        </md-sidenav>
+
+        <md-content id="content" flex>
+
+          <md-icon class="avatar" md-svg-src="{{vm.selected.avatar}}"></md-icon>
+          <h2>{{vm.selected.name}}</h2>
+          <p>{{vm.selected.content}}</p>
+
+          <md-button>
+            <md-icon md-svg-src="assets/svg/share.svg"></md-icon>
+          </md-button>
+
+        </md-content>
+      </div>
+
+
+
+
+
+
+      <!--All Angular Libraries-->
+      <script src="lib/angular.min.js"></script>
+      <script src="lib/angular-animate.min.js"></script>
+      <script src="lib/angular-aria.min.js"></script>
+      <script src="lib/angular-messages.min.js"></script>
+
+      <!-- Angular Material Library -->
+      <script src="lib/angular-material.min.js"></script>
+
+      <!-- My App's JS Files  -->
+      <script src="app/app.js"></script>
+
+    </body>
+</html>
