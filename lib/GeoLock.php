@@ -1,7 +1,6 @@
 <?php
 
 class GeoLocation {
-//Originally from https://github.com/anthonymartin/GeoLocation.php
 
 	private $radLat;  // latitude in radians
 	private $radLon;  // longitude in radians
@@ -24,7 +23,7 @@ class GeoLocation {
 		self::$MAX_LAT = deg2rad(90);    //  PI/2
 		self::$MIN_LON = deg2rad(-180);  // -PI
 		self::$MAX_LON = deg2rad(180);   //  PI
-	}
+-	}
 
 	/**
 	 * @param double $latitude the latitude, in degrees.
@@ -200,6 +199,9 @@ function isWithinTheFence(GeoLocation $location, GeoLocation $center, $distance,
     $inRange = isWithinCircle($location, $center, $distance, $unitOfMeasurement);
 		// if(isset($inRange)){echo "The value is set as:";}
 		if($inRange == 1 ){echo "The location is within the fence...\n<br>";}
+		else {
+			echo "The location is not in the fence";
+		}
 
     // need to check the bounds to make the region "square"
     if(!$inRange) {
